@@ -11,9 +11,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     counter_template = marko_loadTemplate(require.resolve("../../components/counter")),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
-    counter_tag = marko_loadTag(counter_template),
-    nested_container_template = marko_loadTemplate(require.resolve("../nested-container")),
-    nested_container_tag = marko_loadTag(nested_container_template);
+    counter_tag = marko_loadTag(counter_template);
 
 function render(input, out, __component, component, state) {
   var data = input;
@@ -34,12 +32,6 @@ function render(input, out, __component, component, state) {
       "setCount"
     ]
   ]);
-
-  if (state.count === 50) {
-    console.log('uwoh')
-
-    nested_container_tag({}, out, __component, "1");
-  }
 }
 
 marko_template._ = marko_renderer(render, {
@@ -52,7 +44,6 @@ marko_template.meta = {
     id: "/marko-redux-example$1.0.0/src/containers/counter-container/index.marko",
     component: "./",
     tags: [
-      "../../components/counter",
-      "../nested-container"
+      "../../components/counter"
     ]
   };

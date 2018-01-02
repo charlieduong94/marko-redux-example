@@ -6,27 +6,25 @@ require('lasso/browser-refresh').enable('*.marko *.css')
 
 const Main = require('./src/pages/main')
 
-var express = require('express')
-var compression = require('compression')
-var serveStatic = require('serve-static')
+const express = require('express')
+const compression = require('compression')
+const serveStatic = require('serve-static')
 
-var isProduction = process.env.node_env === 'production'
-
-var outputDir = `${__dirname}/static`
+const outputDir = `${__dirname}/static`
 
 require('lasso').configure({
   plugins: [
-    'lasso-marko' // Allow Marko templates to be compiled and transported to the browser
+    'lasso-marko'
   ],
-  outputDir, // Place all generated JS/CSS/etc. files into the "static" dir
-  bundlingEnabled: isProduction, // Only enable bundling in production
-  minify: isProduction, // Only minify JS and CSS code in production
-  fingerprintsEnabled: isProduction // Only add fingerprints to URLs in production
+  outputDir,
+  bundlingEnabled: true,
+  minify: false,
+  fingerprintsEnabled: false
 })
 
-var app = express()
+const app = express()
 
-var port = process.env.PORT || 8080
+const port = 8080
 
 app.use(compression())
 

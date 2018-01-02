@@ -31,29 +31,29 @@ function render(input, out, __component, component, state) {
       filename: __filename
     }, out);
 
-  out.w("<html><head><title>Marko redux</title><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css\">");
-
-  lasso_head_tag({}, out, __component, "4");
+  out.w("<html><head><title>Marko redux</title><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css\"><meta charset=\"utf-8\">");
 
   lasso_head_tag({}, out, __component, "5");
+
+  lasso_head_tag({}, out, __component, "6");
 
   out.w("</head><body>");
 
   component_globals_tag({}, out);
 
-  out.w("<script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-3.2.1.min.js\"></script><script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js\"></script>");
-
   root_tag({
       preloadedState: state.preloadedState
-    }, out, __component, "9");
+    }, out, __component, "8");
 
-  lasso_body_tag({}, out, __component, "10");
+  out.w("<script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-3.2.1.min.js\"></script><script src=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js\"></script>");
 
   lasso_body_tag({}, out, __component, "11");
 
+  lasso_body_tag({}, out, __component, "12");
+
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "12");
+  await_reorderer_tag({}, out, __component, "13");
 
   out.w("</body></html>");
 }
